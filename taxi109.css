@@ -1,0 +1,236 @@
+/* taxi109.css */
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800');
+@import url('https://fonts.googleapis.com/css?family=Lobster');
+
+
+/* COLORS
+ *
+ * Yellow: #ffde00
+ * Blue: #4aaee1
+ *
+ */
+
+
+/*
+ * GENERAL TAG CSS
+ */
+
+body, html {
+  margin: 0px;
+  font-family: 'Open Sans';
+  font-size: 16px;
+  font-weight: 200;
+}
+
+
+a {
+	color: #4aaee1;
+}
+
+
+
+
+
+
+
+/* ------------------------- */
+/* ------------------------- */
+/* ------------------------- */
+
+
+/* give the entire page a margin */
+#container {
+	height: 100%;
+	margin-left: 85px;
+	margin-right: 85px;
+}
+
+.wrapper {
+	position: relative;
+}
+
+/* navbar - title and repo link */
+nav {
+	margin-top: 10px;
+	/*border-bottom: 7px solid black;*/
+}
+
+/* striped border line */
+.bar {
+  list-style:none;
+  width:100%;
+  font-size:0;
+  padding: 0;
+}
+
+.bar li {
+  display:inline-block;
+  width:20%;
+  height:7px;
+}
+
+.bar:nth-child(odd) li:nth-child(even) {
+  background:black;
+}
+
+.bar:nth-child(even) li:nth-child(even) {
+  background:#ffde00;
+}
+
+.bar:nth-child(odd) li:nth-child(odd) {
+  background:#ffde00;
+}
+
+.bar:nth-child(even) li:nth-child(odd) {
+  background:black;
+}
+
+nav > span {
+	line-height: 60px
+}
+
+#nav-title {
+	font-size: 36px;
+	font-family: 'Lobster';
+}
+
+/* link to Github in navbar */
+#nav-link {
+	float: right;
+}
+
+#nav-link a {
+	text-decoration: none;
+	font-family: 'Lobster';
+	font-style: italic;
+	color: black;
+	font-size: 17px;
+}
+
+#nav-link img {
+	width: 30px;
+	vertical-align: middle;
+}
+
+#nav-menu {
+	list-style: none;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+}
+
+#nav-menu li {
+	display: inline-block;
+	background-color: #eee;
+	padding: 0;
+	line-height: 35px;
+	width: 20%;
+	text-align: center;
+	transition: background-color 0.5s ease;
+}
+
+#nav-menu li:hover { color: white; }
+#nav-menu li:nth-child(odd):hover { background-color: #4aaee1; }
+#nav-menu li:nth-child(even):hover { background-color: #ffde00; }
+
+/* menu dividers */
+#nav-menu span {
+	color: black;
+	font-weight: bolder;
+}
+
+/* nav dropdowns */
+#nav-menu img {
+	width: 100%;
+}
+
+/* give offset spacing to dropdown content */
+#nav-menu li .margin-wrapper {
+	margin: 0 13px;
+}
+
+nav .dropdown {
+	position: absolute;
+	background-color: white;
+	border-bottom: 2px solid;
+	border-left: 2px solid;
+	border-right: 2px solid;
+	text-align: left;
+	display: none;
+}
+
+nav .dropdown h4 {
+	margin: 10px 0 8px;
+	line-height: 24px;
+}
+
+nav .dropdown p {
+	font-size: 13px;
+	line-height: 20px;
+}
+
+#nav-menu li:hover .dropdown {
+	display: block;
+	color: black;
+}
+
+nav .dropdown.blue { border-color: #4aaee1; }
+nav .dropdown.yellow { border-color: #ffde00; }
+
+nav .dropdown .img-wrapper  {
+	margin-top: 8px;
+	overflow: hidden;
+	height: 80px;
+	background-position: center;
+}
+
+
+
+
+/* main title div */
+#title {
+	margin-top: 50px;
+	-webkit-transition: all .4s ease;  /* Transition for Webkit browsers */
+}
+
+
+#title img {
+	filter: grayscale(100%);
+    -webkit-filter: grayscale(100%);  /* For Webkit browsers */
+    filter: gray;  /* For IE 6 - 9 */
+    -webkit-transition: all .4s ease;
+    position: absolute; /* to allow for overlay with banner */
+    z-index: -1;
+	max-width: 100%; /* resize to fit #container */
+}
+
+#title:hover img {
+	filter: grayscale(0%);
+    -webkit-filter: grayscale(0%);
+    filter: none;
+}
+
+#title .center-banner {
+	text-align: center;
+	padding: 10px 0;
+	background-color: rgba(0,0,0,0.5);
+	color: white;
+	position: absolute;
+	width: 100%;
+	top: 350px;
+}
+
+#title .center-banner h1 {
+	font-size: 42px;
+	font-family: 'Lobster';
+}
+
+#title .center-banner h3,
+#title .center-banner h4 {
+	line-height: 30px; 
+	margin: 0;
+}
+
+#title .center-banner h4 {
+	font-style: italic;
+}
