@@ -9,12 +9,17 @@
 
 	<!-- CSS -->
 	<link rel="stylesheet" href="taxi109.css">
-	<!-- Bootstrap CSS -->
-<!-- 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"> -->
 </head>
 
 <body>
-
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 <div id="container">
 	<nav>
 		<ul class="bar">
@@ -25,7 +30,7 @@
 			<li></li>
 		</ul>
 		<span id="nav-title">Taxi #109</span>
-		<span id="nav-link"><a href="https://github.com/AOrlov8957/CS109FinalProject">
+		<span id="nav-link"><a href="https://github.com/AOrlov8957/CS109FinalProject" target="_blank">
 			Notebook
 			<img src="github.png">
 			</a>
@@ -96,22 +101,49 @@
 		</ul>
 	</nav>
 
-	<div class="wrapper">
-		<div id="title">
-			<div class="wrapper">
-				<img src="cover.jpg" id="cover-photo">
-				<div class="center-banner">
-					<h1>Taxi #109</h1>
-					<h3>A data science project based on NYC Yellow Cab Data, 2013-2015</h3>
-					<h4>By Kristen Faulkner, Alex Orlov, Stefan Rajkovic, and Hugh Zabriskie</h4>
-				</div>
+	<div id="title">
+		<div class="wrapper">
+			<img src="cover.jpg" id="cover-photo">
+			<div class="center-banner">
+				<h1>Taxi #109</h1>
+				<h3>A data science project based on NYC Yellow Cab Data, 2013-2015</h3>
+				<h4>By Kristen Faulkner, Alex Orlov, Stefan Rajkovic, and Hugh Zabriskie</h4>
 			</div>
 		</div>
-	</div class="wrapper">
+	</div>
 
-	<div id="post-info" style="display: none">
+	<div id="post-info">
 		<div id="article-details">CS 109 | 11:59 PM | 10 December 2015</div>
-		<div id="article-links"> Print | Facebook | Github</div>
+		<ul id="article-links">
+			<li><img src="printer.png" alt="Print article."/></li>
+			<li><div class="fb-share-button" data-href="http://aorlov8957.github.io/CS109FinalProject/" data-layout="button_count"></div></li>
+			<li><a href="https://github.com/AOrlov8957/CS109FinalProject">
+				<img src="github.png" alt="Share our code and notebook on Github!"/></a>
+			</li>
+		</ul>
+	</div>
+
+	<!-- Main entry content !-->
+	<div id="entry-content">
+		<h2>In recent years, the NYC Taxi & Limousine Commission has released a huge wealth of data about the city's taxi business.
+			<br>And the data has a lot to say.
+		</h2>
+		<p>The huge data set, which was obtained through <a href="http://chriswhong.com/open-data/foil_nyc_taxi/">a request under Freedom of Information Act (FOIA)</a> by Chris Wong, is now publicly <a href="http://www.andresmh.com/nyctaxitrips/">available online</a> and the source of as many interesting data science projects as it is the subject of serious privacy concerns. The data contains <a href="http://www.nyc.gov/html/tlc/downloads/pdf/data_dictionary_trip_records_yellow.pdf">detailed information</a> about every tip, including the exact coordinates of pickup and dropoff, an itemized fare breakdown, tip amount, and a hashed value to uniquely (but anonymously) idenitfy each taxi number and license plate.</p>
+		<p>
+		<p>Unfortunately, the data was not anonymousized as much as officials may have thought, and <a href="https://medium.com/@vijayp/of-taxis-and-rainbows-f6bc289679a1#.e18hj56am">one blogger</a> was able to easily de-anonymize the hashed taxi data to reveal the original values. As a result, J.K. Trotter published an <a href="http://gawker.com/the-public-nyc-taxicab-database-that-accidentally-track-1646724546">article on Gawker</a> where he used the data to locate the exact rides taken by big name celebrities, like Bradley Cooper and Olivia Munn, after scraping the internet for timestamped photos of celebrities getting into taxis, the license plate and medallion number displayed on the side of the taxi in large black print for all to see. These projects have raised serious privacy concerns as it seems increasingly possible to link specific individuals to taxi trips they might take and would rather people not know about.</p>
+		<p>However, less controversial articles have been published on the data. Nate Silver's blog FiveThirtyEight examined the <a href="http://fivethirtyeight.com/features/uber-is-taking-millions-of-manhattan-rides-away-from-taxis/">dataset in October</a> alongside Uber pickup data obtained via a separate FOIA request to the Taxi & Limousine Commission and disovered that Ubers were aggressively replacing taxis in the city at almost exactly a 1-to-1 ratio.</p>
+
+		<p>For this project, our team decided to examine the data, which includes about <em>173 million</em> individual taxi rides. For our initial experiments, we used a subset of data between 200K and 1M rows, but found that as we expanded the data set our results did not vary significantly. Our results and links to the data <a href="https://github.com/AOrlov8957/CS109FinalProject">are stored</a> in a Python Jupyter Notebook.</p>
+
+		<br>
+		<h2>To get a more visual sense of the data, we plotted the location of just the first million data points.</h2>
+
+		<p>Using Python's Basemap library, we displayed the pickup and dropoff points for a single medallion in our first million data points. This only includes trips between _______ and _______.</p>
+
+		<div class="figure">
+			<img src="onetaxi.png" alt="Figure: the trips for one taxi between ____ and _____." />
+		</div>
+
 	</div>
 
 </div>
@@ -119,6 +151,3 @@
 </body>
 
 </html>
-
-<!-- Bootstrap JS -->
-<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script> -->

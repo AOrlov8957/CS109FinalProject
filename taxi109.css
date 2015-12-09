@@ -27,7 +27,10 @@ a {
 	color: #4aaee1;
 }
 
-
+ul {
+	margin: 0;
+	padding: 0;
+}
 
 
 
@@ -191,6 +194,7 @@ nav .dropdown .img-wrapper  {
 #title {
 	margin-top: 50px;
 	-webkit-transition: all .4s ease;  /* Transition for Webkit browsers */
+	position: relative;
 }
 
 
@@ -199,9 +203,9 @@ nav .dropdown .img-wrapper  {
     -webkit-filter: grayscale(100%);  /* For Webkit browsers */
     filter: gray;  /* For IE 6 - 9 */
     -webkit-transition: all .4s ease;
-    position: absolute; /* to allow for overlay with banner */
-    z-index: -1;
+    z-index: -1; /* allow dropdown to fall over it. NOTE: z-index only works on explicitly positioned elements */
 	max-width: 100%; /* resize to fit #container */
+	position: relative;
 }
 
 #title:hover img {
@@ -233,4 +237,57 @@ nav .dropdown .img-wrapper  {
 
 #title .center-banner h4 {
 	font-style: italic;
+}
+
+
+/* POST INFO */
+#post-info {
+	margin-top: 35px;
+	text-align: center;
+}
+
+#article-details {
+	color: #777;
+	font-size: 110%;
+}
+
+#article-links {
+	list-style: none;
+}
+
+#article-links li {
+	display: inline-block;
+	margin: 0 20px;
+	line-height: 50px;
+}
+
+#article-links img {
+	height: 30px;
+	vertical-align: middle;
+}
+
+
+
+
+
+/* ENTRY CONTENT */
+#entry-content {
+	margin: 0 150px;
+}
+
+#entry-content h2 {
+
+}
+
+#entry-content p {
+	font-size: 107%;
+	line-height: 32px;
+}
+
+.figure {
+	max-width: 100%;
+	margin: 10px 0;
+	border: 2px solid #ffde00;
+	padding: 10px;
+	text-align: center;
 }
