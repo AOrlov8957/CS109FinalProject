@@ -12,6 +12,7 @@
 </head>
 
 <body>
+<!-- Facebook share button -->
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
@@ -133,20 +134,27 @@
 		<p>Unfortunately, the data was not anonymousized as much as officials may have thought, and <a href="https://medium.com/@vijayp/of-taxis-and-rainbows-f6bc289679a1#.e18hj56am">one blogger</a> was able to easily de-anonymize the hashed taxi data to reveal the original values. As a result, J.K. Trotter published an <a href="http://gawker.com/the-public-nyc-taxicab-database-that-accidentally-track-1646724546">article on Gawker</a> where he used the data to locate the exact rides taken by big name celebrities, like Bradley Cooper and Olivia Munn, after scraping the internet for timestamped photos of celebrities getting into taxis, the license plate and medallion number displayed on the side of the taxi in large black print for all to see. These projects have raised serious privacy concerns as it seems increasingly possible to link specific individuals to taxi trips they might take and would rather people not know about.</p>
 		<p>However, less controversial articles have been published on the data. Nate Silver's blog FiveThirtyEight examined the <a href="http://fivethirtyeight.com/features/uber-is-taking-millions-of-manhattan-rides-away-from-taxis/">dataset in October</a> alongside Uber pickup data obtained via a separate FOIA request to the Taxi & Limousine Commission and disovered that Ubers were aggressively replacing taxis in the city at almost exactly a 1-to-1 ratio.</p>
 
-		<p>For this project, our team decided to examine the data, which includes about <em>173 million</em> individual taxi rides. For our initial experiments, we used a subset of data between 200K and 1M rows, but found that as we expanded the data set our results did not vary significantly. Our results and links to the data <a href="https://github.com/AOrlov8957/CS109FinalProject">are stored</a> in a Python Jupyter Notebook.</p>
+		<p>For this project, our team decided to examine tipping behavior in the data, which includes about <em>173 million</em> individual taxi rides. For our initial experiments, we used a subset of data between 200K and 1M rows, but found that as we expanded the data set our results did not vary significantly. Our results and links to the data <a href="https://github.com/AOrlov8957/CS109FinalProject">are stored</a> in a Python Jupyter Notebook.</p>
 
 		<br>
 		<h2>To get a more visual sense of the data, we plotted the location of just the first million data points.</h2>
 
-		<p>Using Python's Basemap library, we displayed the pickup and dropoff points for a single medallion in our first million data points. This only includes trips between _______ and _______.</p>
+		<p>As a first step, we cleaned the data of extreme outliers and extraneous entries. The most common errors included trips with incorrect latitide/longitude coordinates for pickup and dropoff points, payments that seemed too high, and trips of length zero. We also removed taxi rides to an airport because they are fixed rates - generally, $50. These trips distorted the correlation between features like fare amount, distance, and tip amount.</p>
+		<p>Using Python's Basemap library, we displayed the pickup and dropoff points for a single medallion in our first million data points. This only includes trips over a time period of about 28 hours, starting at January 1st, 2013 4:41 PM.</p>
 
 		<div class="figure">
-			<img src="onetaxi.png" alt="Figure: the trips for one taxi between ____ and _____." />
+			<img src="onetaxi.png" alt="Figure: the trips for one taxi between 1/13/13 4:41PM and 1/14/13 8:58PM." />
+		</div>
+
+		<p>And here is a map of the first 200,000 pickups points in the NYC area between January 1st and January 20th.</p>
+
+		<div class="figure">
+			<img src="onetaxi.png" alt="Figure: the trips for one taxi between 1/13/13 4:41PM and 1/14/13 8:58PM." />
 		</div>
 
 		<h2>The reality about paying with cash is that taxi drivers rarely report the tip when you do.</h2>
 
-		<p>Of the 89K cash rides in our first data subset of 200K rides, only 5 reported a tip. This means that either riders who pay with cash are exceptionally frugal, or more likely those tips are not being reported. Where the 97K rides paid for with credit cards, 97% gave a tip.</p>
+		<p>Of the 453,000 rides paid for in cash in our first million data points, only 11 reported a tip. This means that either riders who pay with cash are exceptionally stingy, or more likely those tips are not being reported. This seems particularly unusual when compared to trips where the rider paid with credit card, which had a 97% tipping rate.</p>
 
 		<table class="table">
 		  <caption>Tipping behavior for the first 1,000,000 data points</caption>
@@ -174,6 +182,10 @@
 		    <td class="numerical">3.39%</td>
 		  </tr>
 		</table>
+
+		<p>It turns out that underreporting cash tips is a <a href="http://www.bloomberg.com/bw/articles/2014-07-31/heres-how-much-you-should-be-tipping-your-cab-driver%20">well-known phenomenon</a>. As a taxi driver, you are forced to pay taxes upon all of the income you make from your trips - which includes tip. Drivers are therefore incentized to pocket cash tips quietly in order to keep their taxes lower.</p>
+
+		<p>We asked a follow-up question: if all of these tips are going unreported and the IRS is not collecting taxes on the tip revenue, then exactly how much  from these cash transactions, then how 
 
 
 
