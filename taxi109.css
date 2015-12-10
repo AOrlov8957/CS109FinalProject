@@ -333,3 +333,8 @@ nav .dropdown .img-wrapper  {
 .uppercase {
 	text-transform: uppercase;
 }
+
+.center {
+	width: 100%;
+	text-align: center;
+}

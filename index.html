@@ -9,6 +9,10 @@
 
 	<!-- CSS -->
 	<link rel="stylesheet" href="taxi109.css">
+
+	<!-- LaTeX -->
+	<script type="text/javascript" src="http://latex.codecogs.com/latexit.js"></script>
+
 </head>
 
 <body>
@@ -185,7 +189,10 @@
 
 		<p>It turns out that underreporting cash tips is a <a href="http://www.bloomberg.com/bw/articles/2014-07-31/heres-how-much-you-should-be-tipping-your-cab-driver%20">well-known phenomenon</a>. As a taxi driver, you are forced to pay taxes upon all of the income you make from your trips - which includes tip. Drivers are therefore incentized to pocket cash tips quietly in order to keep their taxes lower.</p>
 
-		<p>We asked a follow-up question: if all of these tips are going unreported and the IRS is not collecting taxes on the tip revenue, then exactly how much  from these cash transactions, then how 
+		<p>But we asked a follow-up question: if all of tips for rides paid in cash are going unreported and the IRS is not collecting taxes on that revenue, then exactly how much <em>is</em> the IRS losing in terms of revenue? A baseline approach is to find the average tip percentage across all rides paid for by credit card and then made a sum across all fare amount from cash trips times the average tip percentage.</p>
+
+		<div lang="latex" class="center">R = \hat{y} \sum_{f_{CSH}} {f_{CSH}}</div>
+		<p>where <span lang="latex">f_{CSH}</span> is the fare amount from a taxi ride paid for in cash, <span lang="latex">\hat{y}</span> is the average tip percentage across all tips paid with credit card. This baseline model suggests <span lang="latex">R</span>, or the unreported revenue is about $863,812.25 for the first million rides. Note that this excludes airport trips, which as we discussed earlier created a significant distortion in our data on tips. The baseline suggests then, on average, $0.86 of revenue goes unreported in each taxi ride. And given that there were about 175 million taxi ride in 2013, and that roughly 46% were paid for in cash in the first million data points.</p>
 
 
 
