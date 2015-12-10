@@ -225,7 +225,7 @@ nav .dropdown .img-wrapper  {
 }
 
 #title .center-banner h1 {
-	font-size: 42px;
+	font-size: 52px;
 	font-family: 'Lobster';
 }
 
@@ -297,6 +297,10 @@ nav .dropdown .img-wrapper  {
 	text-align: center;
 }
 
+.figure img {
+	width: 100%;
+}
+
 .table {
 	border-collapse: collapse;
     border-spacing: 0;
@@ -337,4 +341,17 @@ nav .dropdown .img-wrapper  {
 .center {
 	width: 100%;
 	text-align: center;
+}
+
+
+
+/* Footer */
+#footer {
+	border-top: 5px solid black;
+	margin-top: 55px;
+	margin-bottom: 30px;
+	padding-top: 10px;
+	text-align: center;
+	font-size: 90%;
+	line-height: 30px;
 }
