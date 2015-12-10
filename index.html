@@ -194,6 +194,12 @@
 		<div lang="latex" class="center">R = \hat{y} \sum_{f_{CSH}} {f_{CSH}}</div>
 		<p>where <span lang="latex">f_{CSH}</span> is the fare amount from a taxi ride paid for in cash, <span lang="latex">\hat{y}</span> is the average tip percentage across all tips paid with credit card. This baseline model suggests <span lang="latex">R</span>, or the unreported revenue is about $863,812.25 for the first million rides. Note that this excludes airport trips, which as we discussed earlier created a significant distortion in our data on tips. The baseline suggests then, on average, $0.86 of revenue goes unreported in each taxi ride. And given that there were about 175 million taxi ride in 2013, and that roughly 46% were paid for in cash in the first million data points.</p>
 
+		<h2>Creating an accurate model to predict tips for cash transactions turns out to be a daunting proposition.</h2>
+
+		<p>We started by trying to estimate the tip amounts for any given ride using an Ordinary Least Squares Regression (OLS). The assumption here is that the data has displays linear correlation between variables. While we knew that this was most likely not the case, we decided to try it anyway as a first attempt at refining our baseline model. We regressed tip percent against the seven variables that described trips; fare amount, passenger count, trip time, payment type, pickup latitude, pickup longitude, and time of day. Our results were unabashedly abysmal. With an <span lang="latex">R^2</span> of <span lang="latex">0.028</span> and most variables having a <span lang="latex">p</span> value that rendered them statistically insignificant, we quickly gave up on a linear fit and moved on to bigger and better methods.</p>
+
+		<p>k-Nearest Neighbors classification was our next idea. k-NN is a relatively simple machine learning algorithm that can be used to identify a data point into one of any number of classes. This is important in everyday problems such as image classification and facial recognition. k-NN works by splitting a dataset up into training and test sets. The user then specifies the features that he or she would like </p>
+
 
 
 	</div>
