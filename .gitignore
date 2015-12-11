@@ -1,3 +1,2 @@
-# the brazil csv is too large for git (i think)
+# no data
 *.csv
-*.h5
