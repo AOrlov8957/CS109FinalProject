@@ -224,8 +224,6 @@
 		<div lang="latex" class="center">R = \hat{y} \sum_{f_{CSH}} {f_{CSH}}</div>
 		<p>where <span lang="latex">f_{CSH}</span> is the fare amount from a taxi ride paid for in cash, <span lang="latex">\hat{y}</span> is the average tip percentage across all tips paid with credit card. This baseline model suggests <span lang="latex">R</span>, or the unreported revenue is about $863,812.25 for the first million rides. Note that this excludes airport trips, which as we discussed earlier created a significant distortion in our data on tips. The baseline suggests then, on average, $0.86 of revenue goes unreported in each taxi ride. And given that there were about 175 million taxi ride in 2013, and that roughly 46% were paid for in cash in the first million data points.</p>
 
-		<p>Using KNN and neural networks (described below), we estimate that for every million rides about $740,000 of cash tips go unreported. And given that there were 175 million taxi rides in New York City in 2013, that would mean a whopping <strong class="numerical">$129,500,000</strong> of revenue was never reported to the IRS that year.</p>
-
 		<br>
 
 		<h2 id="scroll-predict">Creating an accurate model to predict tips for cash transactions turns out to be a daunting proposition.</h2>
@@ -246,20 +244,24 @@
 		<p>An artifical neural network (ANN) learns to correlate a feature space with a discrete set of output classes. These types of networks have become extremely popular in machine learning in recent decades, and they have demonstrated their effectiveness on tasks ranging from image recognition and anomaly detection to signal processing and language translation. We chose the neural network since it’s an advanced machine learning technique that can handle the number of features we have and the size of data we have, and create a good estimator. Our neural network provided the best estimator we had, beating our baseline by about 5% accuracy, and providing a more accurate estimate on the credit card data when the baseline did. Error was calculuated as the distance between the predicted and actual tip amount over all training examples.</p>
 
 		<table class="table">
-		  <caption>Neural Network Prediction Results</caption>
+		  <caption>Machine Learning Prediction Results</caption>
 		  <tr>
 		  	<th>Model</th>
 		  	<th>Accuracy</th>
 		  	<th>Error</th>
 		  <tr>
 		    <td class="uppercase">ann</td>
-		    <td class="numerical">46.7%</td>
-		    <td class="numerical">0.4%</td>
+		    <td class="numerical">56.6%</td>
+		    <td class="numerical">3.37%</td>
 		  </tr>
 		  <tr>
+		  	<td class="uppercase">knn</td>
+		  	<td class="numerical">56.4%</td>
+		  	<td class="numerical">3.24%</td>
+		  <tr>
 		  	<td>Baseline</td>
-		  	<td class="numerical">41%</td>
-		  	<td class="numerical">1.0%</td>
+		  	<td class="numerical">56.2%</td>
+		  	<td class="numerical">3.43%</td>
 		  </tr>
 		</table>
 
@@ -267,6 +269,7 @@
 
 		<ul>
 			<li><p>There are meaningful variations in tipping behavior depending on the time of day, which can inform cab drivers about the most profitable hours to be on the road.</p></li>
+			<li><p>Using KNN and neural networks (described below), we estimate that for every million rides about $740,000 of cash tips go unreported. And given that there were 175 million taxi rides in New York City in 2013, that would mean a whopping <strong class="numerical">$129,500,000</strong> of revenue was never reported to the IRS that year.</p></li>
 			<li><p>We made the initial assumption that the way riders choose to tip has a similar mentality to the way customers tip at a restaurant - essentially, that a tip acts as a rating of the service. But it turns out that 80% of cab drivers fall into the 15-20% tip range, which leads us to believe most people will simply just click the 20% button and go. And this may makes sense as a result of the taxi software, which only allow for tips of specific percentages - the most common being 20%, then 15% and 25%.</p></li>
 			<li><p>But the fact that people's tipping behavior is highly influenced by the 20% button has important implications. Very likely, a service could increase its tip simply by presenting customers with a higher tip percentage button. It seems the convenience and convention of the 20% button makes it a popular choice, but it's very possible that people will continue to tip in the same way if the 20% button is changed to a 25% or 30% one.</p></li>
 		<br>
