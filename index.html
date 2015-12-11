@@ -48,58 +48,58 @@
 			<li></li>
 		</ul>
 		<ul id="nav-menu">
-			<li>Data <!--- the lack of </li> here is important! -->
+			<li onclick="smoothScroll('scroll-data');">Data and Privacy <!--- the lack of </li> here is important! -->
 				<div class="wrapper">
 						<div class="dropdown blue">
 							<div class="margin-wrapper">
-								<div class="img-wrapper" style="background-image:url('images/money.jpg')"></div>
-								<h4>Visualizing the data</h4>
+								<div class="img-wrapper" style="background-image:url('images/cooper.jpg')"></div>
+								<h4>Data and Privacy</h4>
 								<hr>
-								<p>Here we describe initial visualzations and discuss common patterns in NYC taxicab life.</p>
+								<p>Data on hundreds of millions of taxi rides in NYC have been made publicly available, raising privacy concerns about what data scientists might be able to extract from it.</p>
 							</div>
 						</div>
 				</div>
-			<li>The Art of Tipping
+			<li onclick="smoothScroll('scroll-visualizations');">Initial Visualizations
 				<div class="wrapper">
 						<div class="dropdown yellow">
 							<div class="margin-wrapper">
-								<div class="img-wrapper" style="background-image:url('images/money.jpg')"></div>
-								<h4>The Art of Tipping</h4>
+								<div class="img-wrapper" style="background-image:url('images/tip_by_hour.jpg')"></div>
+								<h4>Initial Visualizations</h4>
 								<hr>
-								<p>Here we describe initial visualzations and discuss common patterns in NYC taxicab life.</p>
+								<p>Examining a subset of the data (200K - 1M taxi rides), we looked at where taxi rides start and end, as well as revenue and tipping behavior over the course of the day.</p>
 							</div>
 						</div>
 				</div>
-			<li>Underreported Tips
+			<li onclick="smoothScroll('scroll-unreported');">Underreported Tips
 				<div class="wrapper">
 						<div class="dropdown blue">
 							<div class="margin-wrapper">
 								<div class="img-wrapper" style="background-image:url('images/money.jpg')"></div>
 								<h4>What cab drivers don't tell you about cash tips</h4>
 								<hr>
-								<p>Here we describe initial visualzations and discuss common patterns in NYC taxicab life.</p>
+								<p>Almost all tips from rides paid for in cash go unreported. How much revenue is that?</p>
 							</div>
 						</div>
 				</div>
-			<li>Where do riders tip?
+			<li onclick="smoothScroll('scroll-predict');">Predicting How Riders Tip
 				<div class="wrapper">
 						<div class="dropdown yellow">
 							<div class="margin-wrapper">
-								<div class="img-wrapper" style="background-image:url('images/money.jpg')"></div>
-								<h4>High and low tip zones, where they are</h4>
+								<div class="img-wrapper" style="background-image:url('images/tip_buttons.jpg')"></div>
+								<h4>It turns out that riders are pretty flippant when it comes to how much they tip.</h4>
 								<hr>
-								<p>Here we describe initial visualzations and discuss common patterns in NYC taxicab life.</p>
+								<p>Using a variety of machine learning tools, no significant correlation could be found between aspects of the taxi ride and how the rider will choose to tip. Does this make sense?</p>
 							</div>
 						</div>
 				</div>
-			<li>Conclusions
+			<li onclick="smoothScroll('scroll-conclusions');">Conclusions
 				<div class="wrapper">
 						<div class="dropdown blue">
 							<div class="margin-wrapper">
-								<div class="img-wrapper" style="background-image:url('images/money.jpg')"></div>
-								<h4>The big finds</h4>
+								<div class="img-wrapper" style="background-image:url('images/taxi.jpg')"></div>
+								<h4>The major finds of the project.</h4>
 								<hr>
-								<p>Here we describe initial visualzations and discuss common patterns in NYC taxicab life.</p>
+								<p>“Only those who dare to fail greatly can ever achieve greatly.” - Robert F. Kennedy</p>
 							</div>
 						</div>
 				</div>
@@ -130,7 +130,7 @@
 
 	<!-- Main entry content !-->
 	<div id="entry-content">
-		<h2>In recent years, the NYC Taxi & Limousine Commission has released a huge wealth of data about the city's taxi business.
+		<h2 id="scroll-data">In recent years, the NYC Taxi & Limousine Commission has released a huge wealth of data about the city's taxi business.
 			<br>And the data has a lot to say.
 		</h2>
 		<p>The huge data set, which was obtained through <a href="http://chriswhong.com/open-data/foil_nyc_taxi/">a request under Freedom of Information Act (FOIA)</a> by Chris Wong, is now publicly <a href="http://www.andresmh.com/nyctaxitrips/">available online</a> and the source of as many interesting data science projects as it is the subject of serious privacy concerns. The data contains <a href="http://www.nyc.gov/html/tlc/downloads/pdf/data_dictionary_trip_records_yellow.pdf">detailed information</a> about every tip, including the exact coordinates of pickup and dropoff, an itemized fare breakdown, tip amount, and a hashed value to uniquely (but anonymously) idenitfy each taxi number and license plate.</p>
@@ -141,7 +141,7 @@
 		<p>For this project, our team decided to examine tipping behavior in the data, which includes about <em>173 million</em> individual taxi rides. For our initial experiments, we used a subset of data between 200K and 1M rows, but found that as we expanded the data set our results did not vary significantly. Our results and links to the data <a href="https://github.com/AOrlov8957/CS109FinalProject">are stored</a> in a Python Jupyter Notebook.</p>
 
 		<br>
-		<h2>To get a more visual sense of the data, we plotted the location of just the first million data points.</h2>
+		<h2 id="scroll-visualizations">To get a more visual sense of the data, we plotted the location of just the first million data points.</h2>
 
 		<p>As a first step, we cleaned the data of extreme outliers and extraneous entries. The most common errors included trips with incorrect latitide/longitude coordinates for pickup and dropoff points, payments that seemed too high, and trips of length zero. We also removed taxi rides to airports (JFK, Newark, Nassau, or Westchester) because they are fixed rates - generally, $50. These trips distorted the correlation between features like fare amount, distance, and tip amount.</p>
 		<p>Using Python's Basemap library, we displayed the pickup and dropoff points for a single medallion in our first million data points. This only includes trips over a time period of about 28 hours, starting at January 1st, 2013 4:41 PM.</p>
@@ -156,7 +156,37 @@
 			<img src="images/pickup_init.png" alt="Figure: the trips for one taxi between 1/13/13 4:41PM and 1/14/13 8:58PM." />
 		</div>
 
-		<h2>The reality about paying with cash is that taxi drivers rarely report the tip when you do.</h2>
+		<br>
+		<p> We also picked up some features about tipping behavior. Below is a histogram that shows tipping by time of day. As we can see from the graph, the largest tips tend to occur at night between 8pm-1am, and the smallest tips occur in the morning between 6-7am.</p>
+
+		<div class="figure">
+			<img src="images/tip_by_hour.jpg" alt="Figure: shows average tip percentage for each hour of the day." />
+		</div>
+
+		<p>And, maybe not so surprisingly, the largest amount of revenue for taxis comes during rush hours, which occur between 7-8am and 5-6pm.</p>
+
+		<div class="figure">
+			<img src="images/revenue_by_hour.jpg" alt="Figure: shows average revenue for each hour of the day." />
+		</div>
+
+		<p>Finally, we discovered that the type of software used by the cab to process credit card payments has a small but noticeable impact on the resulting tip. Why? The CMT software includes surcharge and tolls in calculating the fare amount, which increases the tip. The VTS software, however, does not, resulting in lower average tips.</p>
+
+		<table class="table">
+		  <caption>Tipping behavior for the first 1,000,000 data points</caption>
+		  <tr>
+		  	<th>Vendor Software</th>
+		  	<th>Average Tip</th>
+		  <tr>
+		    <td class="uppercase">cmt</td>
+		    <td class="numerical">21.0%</td>
+		  </tr>
+		  <tr>
+		    <td class="uppercase">vts</td>
+		    <td class="numerical">20.4%</td>
+		  </tr>
+		</table>
+
+		<h2 id="scroll-unreported">The reality about paying with cash is that taxi drivers rarely report the tip when you do.</h2>
 
 		<p>Of the 453,000 rides paid for in cash in our first million data points, only 11 reported a tip. This means that either riders who pay with cash are exceptionally stingy, or more likely those tips are not being reported. This seems particularly unusual when compared to trips where the rider paid with credit card, which had a 97% tipping rate.</p>
 
@@ -195,36 +225,8 @@
 		<p>where <span lang="latex">f_{CSH}</span> is the fare amount from a taxi ride paid for in cash, <span lang="latex">\hat{y}</span> is the average tip percentage across all tips paid with credit card. This baseline model suggests <span lang="latex">R</span>, or the unreported revenue is about $863,812.25 for the first million rides. Note that this excludes airport trips, which as we discussed earlier created a significant distortion in our data on tips. The baseline suggests then, on average, $0.86 of revenue goes unreported in each taxi ride. And given that there were about 175 million taxi ride in 2013, and that roughly 46% were paid for in cash in the first million data points.</p>
 
 		<br>
-		<p> We also picked up some features about tipping behavior. Below is a histogram that shows tipping by time of day. As we can see from the graph, the largest tips tend to occur at night between 8pm-1am, and the smallest tips occur in the morning between 6-7am.</p>
 
-		<div class="figure">
-			<img src="images/tip_by_hour.jpg" alt="Figure: shows average tip percentage for each hour of the day." />
-		</div>
-
-		<p>And, maybe not so surprisingly, the largest amount of revenue for taxis comes during rush hours, which occur between 7-8am and 5-6pm.</p>
-
-		<div class="figure">
-			<img src="images/revenue_by_hour.jpg" alt="Figure: shows average revenue for each hour of the day." />
-		</div>
-
-		<p>Finally, we discovered that the type of software used by the cab to process credit card payments actually has a significant impact on the resulting tip. Why? The CMT software includes surcharge and tolls in calculating the fare amount, which increases the tip. The VTS software, however, does not, resulting in lower average tips.</p>
-
-		<table class="table">
-		  <caption>Tipping behavior for the first 1,000,000 data points</caption>
-		  <tr>
-		  	<th>Vendor Software</th>
-		  	<th>Average Tip</th>
-		  <tr>
-		    <td class="uppercase">cmt</td>
-		    <td class="numerical">19.6%</td>
-		  </tr>
-		  <tr>
-		    <td class="uppercase">vts</td>
-		    <td class="numerical">10.6%</td>
-		  </tr>
-		</table> 
-
-		<h2>Creating an accurate model to predict tips for cash transactions turns out to be a daunting proposition.</h2>
+		<h2 id="scroll-predict">Creating an accurate model to predict tips for cash transactions turns out to be a daunting proposition.</h2>
 
 		<p>We started by trying to estimate the tip amounts for any given ride using an Ordinary Least Squares Regression (OLS). The assumption here is that the data has displays linear correlation between variables. While we knew that this was most likely not the case, we decided to try it anyway as a first attempt at refining our baseline model. We regressed tip percent against the seven variables that described trips; fare amount, passenger count, trip time, payment type, pickup latitude, pickup longitude, and time of day. Our results were unabashedly abysmal. With an <span lang="latex">R^2</span> of <span lang="latex">0.028</span> and most variables having a <span lang="latex">p</span> value that rendered them statistically insignificant, we quickly gave up on a linear fit and moved on to bigger and better methods.</p>
 
@@ -238,18 +240,114 @@
 
 		<br>
 		<h2>The last method we tried to use to predict tip amount from our features was an artificial neural network.</h2>
-		<p>An artifical neural network (ANN) learns to correlate a feature space with a discrete set of output classes. These types of networks have become extremely popular in machine learning in recent decades, and they have demonstrated their effectiveness on tasks ranging from image recognition and anomaly detection to signal processing and language translation. We chose the neural network since it’s an advanced machine learning technique that can handle the number of features we have and the size of data we have, and create a good estimator. Our neural network provided the best estimator we had, beating our baseline by about 5% accuracy, and providing a more accurate estimate on the card data when the baseline did.</p>
 
+		<p>An artifical neural network (ANN) learns to correlate a feature space with a discrete set of output classes. These types of networks have become extremely popular in machine learning in recent decades, and they have demonstrated their effectiveness on tasks ranging from image recognition and anomaly detection to signal processing and language translation. We chose the neural network since it’s an advanced machine learning technique that can handle the number of features we have and the size of data we have, and create a good estimator. Our neural network provided the best estimator we had, beating our baseline by about 5% accuracy, and providing a more accurate estimate on the credit card data when the baseline did. Error was calculuated as the distance between the predicted and actual tip amount over all training examples.</p>
+
+		<table class="table">
+		  <caption>Neural Network Prediction Results</caption>
+		  <tr>
+		  	<th>Model</th>
+		  	<th>Accuracy</th>
+		  	<th>Error</th>
+		  <tr>
+		    <td class="uppercase">ann</td>
+		    <td class="numerical">46.7%</td>
+		    <td class="numerical">0.4%</td>
+		  </tr>
+		  <tr>
+		  	<td>Baseline</td>
+		  	<td class="numerical">41%</td>
+		  	<td class="numerical">1.0%</td>
+		  </tr>
+		</table>
+
+		<h2 id="scroll-conclusions">So in conclusion...</h2>
+
+		<ul>
+			<li><p>There are meaningful variations in tipping behavior depending on the time of day, which can inform cab drivers about the most profitable hours to be on the road.</p></li>
+			<li><p>We made the initial assumption that the way riders choose to tip has a similar mentality to the way customers tip at a restaurant - essentially, that a tip acts as a rating of the service. But it turns out that 80% of cab drivers fall into the 15-20% tip range, which leads us to believe most people will simply just click the 20% button and go. And this may makes sense as a result of the taxi software, which only allow for tips of specific percentages - the most common being 20%, then 15% and 25%.</p></li>
+			<li><p>But the fact that people's tipping behavior is highly influenced by the 20% button has important implications. Very likely, a service could increase its tip simply by presenting customers with a higher tip percentage button. It seems the convenience and convention of the 20% button makes it a popular choice, but it's very possible that people will continue to tip in the same way if the 20% button is changed to a 25% or 30% one.</p></li>
+		<br>
+		<hr>
+		<h3>Acknowledgements</h3>
+
+		<p>Thanks to Steve Klosterman, our advisor on this project, and the entire teaching staff of CS109: Data Science.</p>
+
+		<h3>Further Reading</h3>
+
+		<ul>
+			<li><a href="http://dfkoz.tumblr.com/">A 15% Tip Button Could Cost NYC Cabbies $60 Million</a></li>
+			<li><a href="https://medium.com/@vijayp/of-taxis-and-rainbows-f6bc289679a1#.evhqobgox">On Taxis and Rainbows: Lessons from NYC’s improperly anonymized taxi logs</a></li>
+			<li><a href="http://chriswhong.com/open-data/foil_nyc_taxi/">FOILing NYC’s Taxi Trip Data, by Chris Whong</a></li>
+			<li><a href="http://nyctaxi.herokuapp.com/">An <em>incredible</em> visualization called NYC Taxis: A Day in the Life, by Chris Whong</a></li>
+			<li><a href="http://www.andresmh.com/nyctaxitrips/">Original NYC Yellow Cab data set</a></li>
+		</ul>
+
+		<h3>Screencast</h3>
+
+		<p>Available <a href="">here</a>. Much more engaging screencast available <a href="https://www.youtube.com/watch?v=oCjiNBiEUaQ">here</a>.</p>
 
 	</div> <!--- entry-content -->
 
 	<div id="footer">
-		<div class="authors">Made by Hugh Zabriskie, Stefan Rajkovic, Alex Orlov, Kristen Faulkner</div>
+		<div class="authors">Project members: Hugh Zabriskie, Stefan Rajkovic, Alex Orlov, Kristen Faulkner</div>
+		<div>Website created by: Hugh Zabriskie</div>
 		<div>&copy; Zabriskie, Rajkovic, Orlov, Faulkner 2015</div>
 	</div>
 
 </div>
 
 </body>
+
+
+<script>
+
+// Scrolling
+function currentYPosition() {
+    // Firefox, Chrome, Opera, Safari
+    if (self.pageYOffset) return self.pageYOffset;
+    // Internet Explorer 6 - standards mode
+    if (document.documentElement && document.documentElement.scrollTop)
+        return document.documentElement.scrollTop;
+    // Internet Explorer 6, 7 and 8
+    if (document.body.scrollTop) return document.body.scrollTop;
+    return 0;
+}
+
+function elmYPosition(eID) {
+    var elm = document.getElementById(eID);
+    var y = elm.offsetTop;
+    var node = elm;
+    while (node.offsetParent && node.offsetParent != document.body) {
+        node = node.offsetParent;
+        y += node.offsetTop;
+    } return y;
+}
+
+function smoothScroll(eID) {
+    var startY = currentYPosition();
+    var stopY = elmYPosition(eID);
+    var distance = stopY > startY ? stopY - startY : startY - stopY;
+    if (distance < 100) {
+        scrollTo(0, stopY); return;
+    }
+    var speed = Math.round(distance / 100);
+    if (speed >= 20) speed = 20;
+    var step = Math.round(distance / 25);
+    var leapY = stopY > startY ? startY + step : startY - step;
+    var timer = 0;
+    if (stopY > startY) {
+        for ( var i=startY; i<stopY; i+=step ) {
+            setTimeout("window.scrollTo(0, "+leapY+")", timer * speed);
+            leapY += step; if (leapY > stopY) leapY = stopY; timer++;
+        } return;
+    }
+    for ( var i=startY; i>stopY; i-=step ) {
+        setTimeout("window.scrollTo(0, "+leapY+")", timer * speed);
+        leapY -= step; if (leapY < stopY) leapY = stopY; timer++;
+    }
+}
+
+</script>
 
 </html>

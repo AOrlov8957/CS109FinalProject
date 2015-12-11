@@ -20,6 +20,7 @@ body, html {
   font-family: 'Open Sans';
   font-size: 16px;
   font-weight: 200;
+  -webkit-font-smoothing: antialiased !important;
 }
 
 
@@ -160,6 +161,7 @@ nav .dropdown {
 	border-right: 2px solid;
 	text-align: left;
 	display: none;
+	z-index: 100;
 }
 
 nav .dropdown h4 {
@@ -168,7 +170,7 @@ nav .dropdown h4 {
 }
 
 nav .dropdown p {
-	font-size: 13px;
+	font-size: 14px;
 	line-height: 20px;
 }
 
@@ -177,14 +179,19 @@ nav .dropdown p {
 	color: black;
 }
 
+.dropdown:hover {
+	display: block;
+}
+
 nav .dropdown.blue { border-color: #4aaee1; }
 nav .dropdown.yellow { border-color: #ffde00; }
 
 nav .dropdown .img-wrapper  {
 	margin-top: 8px;
 	overflow: hidden;
-	height: 80px;
+	height: 140px;
 	background-position: center;
+	background-size: cover;
 }
 
 
@@ -287,6 +294,10 @@ nav .dropdown .img-wrapper  {
 #entry-content p {
 	font-size: 107%;
 	line-height: 32px;
+}
+
+#entry-content ul li {
+	margin: 15px 0;
 }
 
 .figure {

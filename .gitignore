@@ -1,3 +1,4 @@
 # the brazil csv is too large for git (i think)
 *.csv
 *.h5
+Taxi109_files/*
