@@ -224,6 +224,8 @@
 		<div lang="latex" class="center">R = \hat{y} \sum_{f_{CSH}} {f_{CSH}}</div>
 		<p>where <span lang="latex">f_{CSH}</span> is the fare amount from a taxi ride paid for in cash, <span lang="latex">\hat{y}</span> is the average tip percentage across all tips paid with credit card. This baseline model suggests <span lang="latex">R</span>, or the unreported revenue is about $863,812.25 for the first million rides. Note that this excludes airport trips, which as we discussed earlier created a significant distortion in our data on tips. The baseline suggests then, on average, $0.86 of revenue goes unreported in each taxi ride. And given that there were about 175 million taxi ride in 2013, and that roughly 46% were paid for in cash in the first million data points.</p>
 
+		<p>Using KNN and neural networks (described below), we estimate that for every million rides about $740,000 of cash tips go unreported. And given that there were 175 million taxi rides in New York City in 2013, that would mean a whopping <strong class="numerical">$129,500,000</strong> of revenue was never reported to the IRS that year.</p>
+
 		<br>
 
 		<h2 id="scroll-predict">Creating an accurate model to predict tips for cash transactions turns out to be a daunting proposition.</h2>
